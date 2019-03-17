@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">SwimTracker</string>
+    <string name="title_activity_main_menu">MainMenu</string>
+    <string name="title_home">Home</string>
+    <string name="title_results">Results</string>
+    <string name="title_calendar">Calendar</string>
+    <string name="title_times">Times</string>
+    <string name="title_standards">Standards</string>
+</resources>
