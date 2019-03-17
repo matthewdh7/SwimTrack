@@ -53,8 +53,9 @@
         android:layout_below="@id/checkBox"
         android:layout_marginTop="10dp"
         android:hint="mm-dd-yyyy"
-        android:inputType="text"
-        android:textSize="30dp" />
+        android:clickable="true"
+        android:textSize="30dp"
+        android:focusable="false"/>
 
     <TextView
         android:id="@+id/textView"

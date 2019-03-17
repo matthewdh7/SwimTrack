@@ -11,13 +11,14 @@ public class Time {
 
     private String name;
     private String newTime;
-    private String bestTime;
     private String date;
+    private boolean bestTime;
 
-    public Time(String name, String newTime, String date) {
+    public Time(String name, String newTime, String date, boolean bestTime) {
         this.name = name;
         this.newTime = newTime;
         this.date = date;
+        this.bestTime = bestTime;
     }
 
     public void setId(int id) {
@@ -25,10 +26,6 @@ public class Time {
     }
 
     public void setDate(String date) { this.date = date; }
-
-    public void setBestTime(String bestTime) {
-        this.bestTime = bestTime;
-    }
 
     public int getId() {
         return id;
@@ -42,14 +39,15 @@ public class Time {
         return newTime;
     }
 
-    public String getBestTime() {
-        return bestTime;
-    }
-
     public String getDate() {
         return date;
     }
 
+    public boolean isBestTime() {
+        return bestTime;
+    }
 
-
+    public void setBestTime(boolean bestTime) {
+        this.bestTime = bestTime;
+    }
 }

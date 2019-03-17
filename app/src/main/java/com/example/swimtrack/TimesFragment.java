@@ -1,10 +1,13 @@
 package com.example.swimtrack;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
@@ -17,11 +20,14 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import static android.app.Activity.RESULT_OK;
+
 /**
  * Created by hungmat20 on 3/6/2019.
  */
 
 public class TimesFragment extends Fragment {
+    public static final int ADD_TIME_REQUEST = 1;
     private TimeViewModel timeViewModel;
     private RecyclerView recyclerView;
 
@@ -59,6 +65,37 @@ public class TimesFragment extends Fragment {
             }
         }).attachToRecyclerView(recyclerView);
 
+        FloatingActionButton buttonAddTime = view.findViewById(R.id.button_add_time);
+        buttonAddTime.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), AddTimeActivity.class);
+                startActivityForResult(intent, ADD_TIME_REQUEST);
+            }
+        });
+
         return view;
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == ADD_TIME_REQUEST && resultCode == RESULT_OK) {
+            String name = data.getStringExtra(AddTimeActivity.EXTRA_NAME);
+            String time = data.getStringExtra(AddTimeActivity.EXTRA_TIME);
+            String date = data.getStringExtra(AddTimeActivity.EXTRA_DATE);
+            boolean bestTime = data.getBooleanExtra(AddTimeActivity.EXTRA_BESTTIME, false);
+
+            Time newTime = new Time(name, time, date, bestTime);
+            timeViewModel = ViewModelProviders.of(this).get(TimeViewModel.class);
+            timeViewModel.insert(newTime);
+
+            Toast.makeText(getContext(), "New time entered", Toast.LENGTH_SHORT).show();
+
+        } else {
+            Toast.makeText(getContext(), "New time not entered", Toast.LENGTH_SHORT).show();
+        }
     }
 }

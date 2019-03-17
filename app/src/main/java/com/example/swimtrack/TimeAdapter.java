@@ -28,6 +28,9 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeAdapter.TimeHolder> {
         holder.textViewEvent.setText(currentTime.getName());
         holder.textViewNewTime.setText(currentTime.getNewTime());
         holder.textViewDate.setText(currentTime.getDate());
+        if(currentTime.isBestTime() == true) {
+            holder.textViewNewTime.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_star, 0);
+        }
     }
 
     @Override

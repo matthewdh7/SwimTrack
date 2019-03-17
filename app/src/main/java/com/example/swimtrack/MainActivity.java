@@ -25,7 +25,7 @@ public class MainActivity extends FragmentActivity {
                             selectedFragment = new HomeFragment();
                             break;
                         case R.id.navigation_results:
-                            selectedFragment = new BestTimesFragment();
+                            selectedFragment = new ResultsFragment();
                             break;
                         case R.id.navigation_times:
                             selectedFragment = new TimesFragment();
