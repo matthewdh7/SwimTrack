@@ -1,5 +1,6 @@
 package com.example.swimtrack;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
@@ -75,6 +77,14 @@ public class TimesFragment extends Fragment {
             }
         });
 
+        FloatingActionButton buttonClearTimes = view.findViewById(R.id.button_clear_all);
+        buttonClearTimes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirmDialog();
+            }
+        });
+
         return view;
     }
 
@@ -98,4 +108,26 @@ public class TimesFragment extends Fragment {
             Toast.makeText(getContext(), "New time not entered", Toast.LENGTH_SHORT).show();
         }
     }
+
+    private void confirmDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("Confirm");
+        builder.setMessage("Do you want to delete all times?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getContext(), "All times cleared", Toast.LENGTH_SHORT).show();
+                timeViewModel.deleteAllTimes();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+            }
+        });
+        builder.show();
+    }
+
 }

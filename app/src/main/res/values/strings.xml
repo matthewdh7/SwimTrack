@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SwimTracker</string>
+    <string name="app_name">SwimTrack</string>
     <string name="title_activity_main_menu">MainMenu</string>
     <string name="title_home">Home</string>
     <string name="title_results">Results</string>

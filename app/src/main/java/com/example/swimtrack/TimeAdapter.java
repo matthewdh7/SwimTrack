@@ -26,10 +26,12 @@ public class TimeAdapter extends RecyclerView.Adapter<TimeAdapter.TimeHolder> {
     public void onBindViewHolder(@NonNull TimeHolder holder, int position) {
         Time currentTime  = times.get(position);
         holder.textViewEvent.setText(currentTime.getName());
-        holder.textViewNewTime.setText(currentTime.getNewTime());
         holder.textViewDate.setText(currentTime.getDate());
+        holder.textViewNewTime.setText(currentTime.getNewTime());
         if(currentTime.isBestTime() == true) {
             holder.textViewNewTime.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_star, 0);
+        } else {
+            holder.textViewNewTime.setCompoundDrawablesWithIntrinsicBounds(0, 0, 0, 0);
         }
     }
 

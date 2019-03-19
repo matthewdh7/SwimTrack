@@ -21,6 +21,9 @@ public interface TimeDao {
     @Delete
     void delete(Time time);
 
-    @Query("SELECT * FROM time_table ORDER BY name DESC")
+    @Query("DELETE FROM time_table")
+    void deleteAllTimes();
+
+    @Query("SELECT * FROM time_table ORDER BY name")
     LiveData<List<Time>> getAllTimes();
 }

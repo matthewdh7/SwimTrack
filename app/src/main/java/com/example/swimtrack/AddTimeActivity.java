@@ -79,7 +79,7 @@ public class AddTimeActivity extends AppCompatActivity implements DatePickerDial
         if (date.trim().isEmpty()) {
             Toast.makeText(this, "Using today's date", Toast.LENGTH_SHORT).show();
             Date today = Calendar.getInstance().getTime();
-            SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-YYYY");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("M-d-YYYY");
             String formattedToday = dateFormat.format(today);
             date = formattedToday;
         }

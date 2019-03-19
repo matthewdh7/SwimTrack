@@ -30,6 +30,10 @@ public class TimeRepository {
         new DeleteTimeAsyncTask(timeDao).execute(time);
     }
 
+    public void deleteAllTimes() {
+        new DeleteAllTimesAsyncTask(timeDao).execute();
+    }
+
     public LiveData<List<Time>> getAllTimes() {
         return allTimes;
     }
@@ -73,6 +77,20 @@ public class TimeRepository {
         @Override
         protected Void doInBackground(Time... times) {
             timeDao.delete(times[0]);
+            return null;
+        }
+    }
+
+    private static class DeleteAllTimesAsyncTask extends AsyncTask<Void, Void, Void> {
+        private TimeDao timeDao;
+
+        private DeleteAllTimesAsyncTask(TimeDao timeDao) {
+            this.timeDao = timeDao;
+        }
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            timeDao.deleteAllTimes();
             return null;
         }
     }

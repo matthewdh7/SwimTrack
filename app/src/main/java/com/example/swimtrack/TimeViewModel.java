@@ -40,6 +40,10 @@ public class TimeViewModel extends AndroidViewModel {
         repository.delete(time);
     }
 
+    public void deleteAllTimes() {
+        repository.deleteAllTimes();
+    }
+
     public LiveData<List<Time>> getAllTimes() {
         return allTimes;
     }

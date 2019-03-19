@@ -26,7 +26,7 @@ import static android.content.Context.CONNECTIVITY_SERVICE;
  * Created by hungmat20 on 3/6/2019.
  */
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements MainActivity.OnBackPressedListener {
     public static final int ADD_TIME_REQUEST = 1;
     private TimeViewModel timeViewModel;
     private WebView webView;
@@ -35,6 +35,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
 
+        ((MainActivity) getActivity()).setOnBackPressedListener(this);
         webView = (WebView) v.findViewById(R.id.webView);
 
         WebSettings webSettings = webView.getSettings();
@@ -57,8 +58,7 @@ public class HomeFragment extends Fragment {
 
         webView.setWebViewClient(new WebViewClient() {
             @Override
-            public void onPageFinished(WebView view, String url)
-            {
+            public void onPageFinished(WebView view, String url) {
                 webView.loadUrl("javascript:(function() { " +
                         "document.getElementById('column_side').style.visibility = 'hidden'; " +
                         "document.getElementById('column_side').style.width = '11.5%'; " +
@@ -67,14 +67,12 @@ public class HomeFragment extends Fragment {
                         "document.getElementsByClassName('tabs')[0].style.display='none'; " +
                         "document.getElementById('utilities').style.display='none'; " +
                         "document.getElementById('divEventCat').style.display='none'; " +
-                        "document.getElementById('divEventCat').style.display='none'; " +
                         "document.getElementById('titlebar_lg').style.height = '1%'; " +
                         "})()");
             }
         });
 
         webView.loadUrl("https://www.teamunify.com/EventsCurrent.jsp?team=pnws2");
-
 
         FloatingActionButton buttonAddTime = v.findViewById(R.id.button_add_time);
         buttonAddTime.setOnClickListener(new View.OnClickListener() {
@@ -96,12 +94,6 @@ public class HomeFragment extends Fragment {
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
-    public void onBackPressed() {
-        if (webView.canGoBack()) {
-            webView.goBack();
-        }
-    }
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -120,6 +112,15 @@ public class HomeFragment extends Fragment {
 
         } else {
             Toast.makeText(getContext(), "New time not entered", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void doBack() {
+        if (webView.canGoBack()) {
+            webView.goBack();
+        } else {
+
         }
     }
 }

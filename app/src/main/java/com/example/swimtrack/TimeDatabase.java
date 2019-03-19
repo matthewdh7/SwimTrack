@@ -44,7 +44,7 @@ public abstract class TimeDatabase extends RoomDatabase {
 
         @Override
         protected Void doInBackground(Void... voids) {
-            timeDao.insert(new Time("Example Event (swipe to remove)", "0:00.00", "1/1/19", false));
+            timeDao.insert(new Time("<Swipe to clear>", "0:00.00", "1/1/2019", false));
             return null;
         }
     }
