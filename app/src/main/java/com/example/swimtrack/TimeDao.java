@@ -26,4 +26,7 @@ public interface TimeDao {
 
     @Query("SELECT * FROM time_table ORDER BY name")
     LiveData<List<Time>> getAllTimes();
+
+    @Query("SELECT * FROM time_table WHERE bestTime = 1 ORDER BY name")
+    LiveData<List<Time>> getBestTimes();
 }

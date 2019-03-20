@@ -43,6 +43,8 @@ public class MainActivity extends FragmentActivity {
                         case R.id.navigation_standards:
                             selectedFragment = new StandardsFragment();
                             break;
+                        case R.id.navigation_besttimes:
+                            selectedFragment = new BestTimesFragment();
                     }
 
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
@@ -60,6 +62,10 @@ public class MainActivity extends FragmentActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         navigation.setOnNavigationItemSelectedListener(navListener);
+
+        if (savedInstanceState == null) {
+            navigation.setSelectedItemId(R.id.navigation_home); // change to whichever id should be default
+        }
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                 new HomeFragment()).commit();

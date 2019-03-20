@@ -112,7 +112,7 @@ public class TimesFragment extends Fragment {
     private void confirmDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle("Confirm");
-        builder.setMessage("Do you want to delete all times?");
+        builder.setMessage("Do you want to delete all times? \n This includes best times.");
         builder.setCancelable(false);
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override

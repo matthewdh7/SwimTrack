@@ -11,17 +11,70 @@
     android:focusable="true"
     tools:context="TimesFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewStandards"
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/choose_button"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
-        android:background="#07598F"
-        android:padding="4dp"
-        android:scrollbars="vertical" />
+        android:text="Choose a file below:"
+        android:textColor="@android:color/white"
+        android:clickable="false"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:background="@color/colorPrimaryDark" />
+
+    <Button
+        android:id="@+id/button_gold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PNS Silver/Gold"
+        android:layout_below="@id/choose_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/button_14u"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PNS 14U Champs"
+        android:layout_below="@id/button_gold"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/button_senior"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PNS Senior Champs"
+        android:layout_below="@id/button_14u"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/button_regionals"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NW Regionals"
+        android:layout_below="@id/button_senior"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/button_zone_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Western Zone Age Group"
+        android:layout_below="@id/button_regionals"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/button_zone_senior"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Western Zone Seniors"
+        android:layout_below="@id/button_zone_age"
+        android:layout_centerHorizontal="true"/>
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBackground"/>
 
 </RelativeLayout>

@@ -29,7 +29,8 @@
         android:layout_below="@id/edit_text_name"
         android:hint="x:xx.xx"
         android:inputType="text"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        android:digits="1234567890.:"/>
 
     <CheckBox
         android:id="@+id/checkBox"

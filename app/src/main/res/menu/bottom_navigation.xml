@@ -3,13 +3,19 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
-        android:icon="@drawable/ic_home_black_24dp"
-        android:title="@string/title_home" />
+        android:id="@+id/navigation_standards"
+        android:icon="@drawable/ic_pool_black_24dp"
+        android:title="@string/title_standards" />
+
     <item
         android:id="@+id/navigation_results"
         android:icon="@drawable/ic_format_list_numbered_black_24dp"
         android:title="@string/title_results" />
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/title_home" />
 
     <item
         android:id="@+id/navigation_times"
@@ -17,8 +23,10 @@
         android:title="@string/title_times" />
 
     <item
-        android:id="@+id/navigation_standards"
-        android:icon="@drawable/ic_pool_black_24dp"
-        android:title="@string/title_standards" />
+        android:id="@+id/navigation_besttimes"
+        android:icon="@drawable/ic_medal"
+        android:title="Best Times" />
+
+
 
 </menu>

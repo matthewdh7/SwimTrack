@@ -10,11 +10,13 @@ import androidx.lifecycle.LiveData;
 public class TimeRepository {
     private TimeDao timeDao;
     private LiveData<List<Time>> allTimes;
+    private LiveData<List<Time>> bestTimes;
 
     public TimeRepository(Application application) {
         TimeDatabase database = TimeDatabase.getInstance(application);
         timeDao = database.timeDao();
         allTimes = timeDao.getAllTimes();
+        bestTimes = timeDao.getBestTimes();
     }
 
     //ViewModel calls these three methods to modify data
@@ -36,6 +38,10 @@ public class TimeRepository {
 
     public LiveData<List<Time>> getAllTimes() {
         return allTimes;
+    }
+
+    public LiveData<List<Time>> getBestTimes() {
+        return bestTimes;
     }
 
     //AsyncTasks allow change data in background without crashing app
